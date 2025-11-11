@@ -35,7 +35,7 @@ class MenuApp:
         tk.Button(frame, text="VER REPORTES", bg="#9C27B0", fg="white",
                   **btn_style, command=self.abrir_reportes).grid(row=3, column=0, pady=15)
         tk.Button(frame, text="ADMINISTRAR USUARIOS", bg="#40B027", fg="white",
-                  **btn_style, command=self.abrir_admin_usuarios).grid(row=4, column=0, pady=15)
+                  **btn_style, command=self.abrir_admin_usuarios).grid(row=3, column=1, pady=15)
         tk.Button(root, text="CERRAR SESIÓN", bg="#F44336", fg="white",
                   **btn_style, command=root.destroy).pack(pady=15)
 
