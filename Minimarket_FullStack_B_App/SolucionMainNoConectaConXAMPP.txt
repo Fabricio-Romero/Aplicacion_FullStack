@@ -1,0 +1,14 @@
+Agregar las siguientes líneas de código al main.spec
+
+from PyInstaller.utils.hooks import collect_data_files
+
+datas = collect_data_files('mysql.connector', include_py_files=True)
+
+a = Analysis(
+    ['main.py'],
+    ...
+    datas=datas,
+    ...
+)
+
+Luego ejecutar Python -m PyInstaller main.spec en la terminal de VSCode

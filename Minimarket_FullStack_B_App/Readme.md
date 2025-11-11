@@ -122,6 +122,10 @@ Haga doble click en el archivo main.exe
 
 ![Productos](Capturas/Pantalla_Productos.png)
 
+**Categorias**
+
+![Categorias](Capturas/Pantalla_Categorias.png)
+
 **Movimientos**
 
 ![Movimientos](Capturas/Pantalla_Movimientos.png)
