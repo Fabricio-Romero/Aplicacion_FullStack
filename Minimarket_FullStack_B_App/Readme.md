@@ -9,7 +9,7 @@
 Una aplicación de escritorio que permite:
 - Login con roles (admin/empleado/super_usuario)
 - Gestio de productos (Agregar/Leer/Actualizar/Eliminar)
-- Conexión a base de datos MySQL
+- Conexión a base de datos MySQL mediante XAMPP
 
 ---
 
@@ -17,27 +17,14 @@ Una aplicación de escritorio que permite:
 
 - Python 3.13.9
 - Tkinter (Interfaz Gráfica)
-- MySQL
-- mysql-connector-python
+- XAMPP
 
 ---
 
 ## Estructura del proyecto
 
 MINIMARKET_FULLSTACK_B_APP
-|    L Assets
-|    L Capturas
-|    L Database
-|    |    L db_connection.py
-|    L Modules
-|    |    L __init__.py
-|    |    L AdminUser.py
-|    |    L Login.py
-|    |    L Menu.py
-|    |    L Movements.py
-|    |    L Products.py
-|    |    L Reports.py
-|    L Main.py
+|    L Main.exe
 |    L Readme.md <--- Este archivo
 
 ---
@@ -45,23 +32,25 @@ MINIMARKET_FULLSTACK_B_APP
 ## Requisitos previos
 
 1. Python 3.13.9+
-2. MySQL (XAMPP o MySQL Server)
-3. Visual Studio Code
+2. XAMPP con conexion a MySQL
 
 ---
 
 ## Instalación
 
 1. **Clonar o descargar el proyecto**
-    a. Entra al link: https://github.com/Fabricio-Romero/Aplicacion_FullStack.git
-    b. Presione el boton ariiba a la derecha donde dice <>Code y luego seleccione download zip
+    a. Entra al link: 
+    b. Presione el boton ubicado arriba a la derecha donde dice <>Code y luego seleccione download zip
     c. Extraiga el archivo
 
-2. **Instalar el conector de MySQL a Python**:
-    En la terminal del Visual Studio Code ejecute:
-    pip install mysql-connector-python
-3. **Crear la base de datos en MySQL Workbench**
-    Ejecute el siguiente script en MySQL Workbench:
+2. **Instalar XAMPP**:
+    Ingrese al link: https://www.apachefriends.org/es/index.html
+    Y presione XAMPP para Windows
+    Una vez instalado presione el boton "start" en apache y MySQL
+    Luego presione el boton "admin" en MySQL
+
+3. **Crear la base de datos en XAMPP**
+    Ejecute el siguiente script en la pagina que se abrió:
     
     CREATE DATABASE IF NOT EXISTS Minimarket_FullStack_B;
     USE Minimarket_FullStack_B;
@@ -115,11 +104,7 @@ MINIMARKET_FULLSTACK_B_APP
 
 ## Como ejecutar
 
-1. Abre la terminal en la carpeta del proyecto
-2. Ejecuta: python main.py
-3. Inicia sesión con:
-    - Email: Fabricio@minimarket.com
-    - Rol: super_usuario
+Haga doble click en el archivo main.exe
 
 ---
 
