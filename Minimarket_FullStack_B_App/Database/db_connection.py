@@ -17,14 +17,16 @@ def conectar():
         conn = mysql.connector.connect(
             # parametros de conexion
             # el host va a ser el localhost
-            host="localhost",
+            host="127.0.0.1",
             # el usuario va a ser el root
             user="root",
+            port=3306,
             # la contrasenia del usuario va a ser:
             # Cambiar la contrasenia dependiendo del usuario
-            password="46768032",
+            password="",
             # la base de datos a la que se va a conectar
-            database="minimarket_fullstack_b"
+            database="minimarket_fullstack_b",
+            auth_plugin="mysql_native_password"
         )
         # devuelve la variable conn si todo esta bien
         return conn
