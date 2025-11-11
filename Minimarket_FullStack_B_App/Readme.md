@@ -50,7 +50,7 @@ MINIMARKET_FULLSTACK_B_APP
     Luego presione el boton "admin" en MySQL
 
 3. **Crear la base de datos en XAMPP**
-    Ejecute el siguiente script en la pagina que se abrió:
+    Se va a abrir una página, en esa pagina anda al apartado que dice SQL, luego en ese apartado copia y pega el siguente script:
     
     CREATE DATABASE IF NOT EXISTS Minimarket_FullStack_B;
     USE Minimarket_FullStack_B;
