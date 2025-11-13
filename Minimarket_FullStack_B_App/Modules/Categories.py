@@ -13,55 +13,58 @@ class CategoriasApp:
         self.root.title("Categorias")
 
         frame = tk.Frame(root)
-        frame.pack(pady=20, padx=20)
+        frame.pack(padx=20, pady=20)
 
         self.entries = {}
 
-        tk.Label(frame, text="Nombre:").grid(
-            row=0, column=0, sticky="e", pady=2)
-        self.entries["Nombre"] = tk.Entry(frame, width=33)
-        self.entries["Nombre"].grid(
-            row=0, column=1, pady=2, padx=5)
-
-        tk.Label(frame, text="Descripcion:").grid(
-            row=1, column=0, sticky="e", pady=2)
-        self.entries["Descripción"] = tk.Text(
-            frame, width=28, height=5, font=("Arial", 10))
-        self.entries["Descripción"].grid(row=1, column=1, pady=2)
-
-        tk.Button(
-            frame, text="AGREGAR", bg="#6CFF22", fg="blue",
-            font=("Arial", 10, "bold"),
-            command=self.agregar
-        ).grid(row=3, column=0, ipadx=15, padx=5, pady=15)
-        tk.Button(
-            frame, text="ACTUALIZAR", bg="#227EFF", fg="orange",
-            font=("Arial", 10, "bold"),
-            command=self.actualizar
-        ).grid(row=3, column=1, sticky="w", ipadx=10, pady=15)
-        tk.Button(
-            frame, text="ELIMINAR", bg="#F80000", fg="black",
-            font=("Arial", 10, "bold"),
-            command=self.eliminar
-        ).grid(row=3, column=1, sticky="e", ipadx=10, pady=15)
-        tk.Button(
-            frame, text="LIMPIAR", bg="#00F2FF", fg="green",
-            font=("Arial", 10, "bold"),
-            command=self.limpiar
-        ).grid(row=3, column=3, padx=5, ipadx=15, pady=15)
-
         # Tabla de categorias
         self.tree = ttk.Treeview(
-            root,
-            columns=("id", "nombre", "descripción"),
+            frame,
+            columns=("id", "nombre", "descripcion"),
             show="headings",
             height=15
         )
         for col in self.tree["columns"]:
             self.tree.heading(col, text=col)
-            self.tree.column(col, width=140, anchor="center")
+            self.tree.column("id", width=3, anchor="center")
+            self.tree.column("nombre", width=50, anchor="center")
+            self.tree.column("descripcion", width=160, anchor="center")
 
-        self.tree.pack(pady=10, padx=20, fill="both", expand=True)
+        self.tree.grid(row=0, column=1, rowspan=10,
+                       columnspan=2, sticky="e", padx=15, ipadx=150, ipady=55)
+
+        tk.Label(frame, text="Nombre:").grid(
+            row=0, column=0, sticky="n")
+        self.entries["Nombre"] = tk.Entry(
+            frame, width=33)
+        self.entries["Nombre"].grid(row=1, column=0, sticky="w")
+
+        tk.Label(frame, text="Descripcion:").grid(
+            row=2, column=0, sticky="n")
+        self.entries["Descripción"] = tk.Text(
+            frame, width=28, height=5, font=("Arial", 10))
+        self.entries["Descripción"].grid(row=3, column=0, pady=2)
+
+        tk.Button(
+            frame, text="AGREGAR", bg="#6CFF22", fg="blue",
+            font=("Arial", 10, "bold"),
+            command=self.agregar
+        ).grid(row=6, column=0, sticky="n")
+        tk.Button(
+            frame, text="ACTUALIZAR", bg="#227EFF", fg="orange",
+            font=("Arial", 10, "bold"),
+            command=self.actualizar
+        ).grid(row=7, column=0, sticky="n")
+        tk.Button(
+            frame, text="ELIMINAR", bg="#F80000", fg="black",
+            font=("Arial", 10, "bold"),
+            command=self.eliminar
+        ).grid(row=8, column=0, sticky="n")
+        tk.Button(
+            frame, text="LIMPIAR", bg="#00F2FF", fg="green",
+            font=("Arial", 10, "bold"),
+            command=self.limpiar
+        ).grid(row=9, column=0, sticky="n")
 
         self.cargar_categorias()
         self.tree.bind("<<TreeviewSelect>>", self.seleccionar)
@@ -83,12 +86,12 @@ class CategoriasApp:
             conn.close()
             self.cargar_categorias()
             self.limpiar()
-            messagebox.showinfo("Éxito", "Producto agregado")
+            messagebox.showinfo("Éxito", "Categoria agregada")
 
     def actualizar(self):
         seleccion = self.tree.selection()
         if not seleccion:
-            messagebox.showwarning("Selecciona", "Selecciona un producto")
+            messagebox.showwarning("Selecciona", "Selecciona una categoria")
             return
 
         item = self.tree.item(seleccion[0])
@@ -108,15 +111,15 @@ class CategoriasApp:
             conn.commit()
             conn.close()
             self.cargar_categorias()
-            messagebox.showinfo("Éxito", "Producto actualizado")
+            messagebox.showinfo("Éxito", "Categoria actualizada")
 
     def eliminar(self):
         seleccion = self.tree.selection()
         if not seleccion:
-            messagebox.showwarning("Selecciona", "Selecciona un producto")
+            messagebox.showwarning("Selecciona", "Selecciona una categoria")
             return
 
-        if messagebox.askyesno("Confirmar", "¿Eliminar producto?"):
+        if messagebox.askyesno("Confirmar", "¿Eliminar categoria?"):
             categoria_id = self.tree.item(seleccion[0])["values"][0]
 
             conn = conectar()

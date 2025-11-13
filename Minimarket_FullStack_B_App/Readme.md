@@ -8,7 +8,9 @@
 
 Una aplicación de escritorio que permite:
 - Login con roles (admin/empleado/super_usuario)
-- Gestio de productos (Agregar/Leer/Actualizar/Eliminar)
+- Gestio de productos, categorias, proveedores y usuarios(empleados) (Agregar/Leer/Actualizar/Eliminar)
+- Registrar movimientos de entrada y salida
+- Reportes sobre el stock actual y los movimientos del dia
 - Conexión a base de datos MySQL mediante XAMPP
 
 ---
@@ -17,29 +19,54 @@ Una aplicación de escritorio que permite:
 
 - Python 3.13.9
 - Tkinter (Interfaz Gráfica)
-- XAMPP
+- MySQL (XAMPP)
 
 ---
 
 ## Estructura del proyecto
 
 MINIMARKET_FULLSTACK_B_APP
-|    L Main.exe
+|    L Capturas
+|        L Confirmacion_Login.png
+|        L Pantalla_AdministrarUsuarios.png
+|        L Pantalla_Categorias.png
+|        L Pantalla_Login.png
+|        L Pantalla_Menu.png
+|        L Pantalla_Movimientos.png
+|        L Pantalla_Productos.png
+|        L Pantalla_Proveedores.png
+|        L Pantalla_Reportes.png
+|    L Database
+|        L db_connection.py
+|    L Modules
+|        L __init__.py
+|        L AdminUser.py
+|        L Categories.py
+|        L Login.py
+|        L Menu.py
+|        L Movements.py
+|        L Products.py
+|        L Reports.py
+|        L Suppliers.py
+|    L main.exe
+|    L Main.py
+|    L main.spec
 |    L Readme.md <--- Este archivo
 
 ---
 
 ## Requisitos previos
 
-1. Python 3.13.9+
-2. XAMPP con conexion a MySQL
+1. Windows 10 o superior
+2. Python 3.13.9 o superior
+3. XAMPP con conexion a MySQL
 
 ---
 
 ## Instalación
 
 1. **Clonar o descargar el proyecto**
-    a. Entra al link: 
+    a. Entra al link: https://github.com/Fabricio-Romero/Aplicacion_FullStack.git
     b. Presione el boton ubicado arriba a la derecha donde dice <>Code y luego seleccione download zip
     c. Extraiga el archivo
 
@@ -50,7 +77,7 @@ MINIMARKET_FULLSTACK_B_APP
     Luego presione el boton "admin" en MySQL
 
 3. **Crear la base de datos en XAMPP**
-    Se va a abrir una página, en esa pagina anda al apartado que dice SQL, luego en ese apartado copia y pega el siguente script:
+    Se va a abrir una página, en esa pagina dirigase al apartado que dice SQL, luego en ese apartado copia y pega el siguente script:
     
     CREATE DATABASE IF NOT EXISTS Minimarket_FullStack_B;
     USE Minimarket_FullStack_B;
@@ -100,11 +127,14 @@ MINIMARKET_FULLSTACK_B_APP
     INSERT INTO usuarios (nombre, email, rol) VALUES
     ('Romero Fabricio', 'Fabricio@minimarket.com', 'super_usuario');
 
+4. **Paso Final**
+    Una vez pegado el script, en la parte inferior derecha en el apartado SQL hay un boton que dice "Continuar", presionelo y listo!
+
 ---    
 
 ## Como ejecutar
 
-Haga doble click en el archivo main.exe
+Haga doble click en el archivo main.exe y a disfrutar!
 
 ---
 
@@ -122,10 +152,6 @@ Haga doble click en el archivo main.exe
 
 ![Productos](Capturas/Pantalla_Productos.png)
 
-**Categorias**
-
-![Categorias](Capturas/Pantalla_Categorias.png)
-
 **Movimientos**
 
 ![Movimientos](Capturas/Pantalla_Movimientos.png)
@@ -133,6 +159,14 @@ Haga doble click en el archivo main.exe
 **Reportes**
 
 ![Reportes](Capturas/Pantalla_Reportes.png)
+
+**Categorias**
+
+![Categorias](Capturas/Pantalla_Categorias.png)
+
+**Proveedores**
+
+![Proveedores](Capturas/Pantalla_Proveedores.png)
 
 **Administrar Usuarios**
 
