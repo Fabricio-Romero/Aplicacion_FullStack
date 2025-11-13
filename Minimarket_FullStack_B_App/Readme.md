@@ -134,7 +134,7 @@ MINIMARKET_FULLSTACK_B_APP
 
 ## Como ejecutar
 
-Haga doble click en el archivo main.exe y a disfrutar!
+Haga doble click en el archivo main.exe, luego le va a salir un cartel de advertencia de windows, presione en mas información y luego en ejecutar de todas maneras y a disfrutar!
 
 ---
 
